@@ -1,0 +1,26 @@
+
+// const MyComponent = (props) => {
+//     const {name, age} = props;
+//   return (
+//     <>
+//       <div>나의 컴포넌트!</div>
+//       <div>이름 : {name}</div>
+//       <div>나이 : {age}</div>
+//     </>
+//   );
+// };
+
+// export default MyComponent;
+
+const MyComponent = ({name, age}) => {
+    // const {name, age} = props;
+  return (
+    <>
+      <div>나의 컴포넌트!</div>
+      <div>이름 : {name}</div>
+      <div>나이 : {age}</div>
+    </>
+  );
+};
+
+export default MyComponent;

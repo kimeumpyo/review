@@ -1,0 +1,124 @@
+1. 함수형 컴포넌트
+
+2. 클래스형 컴포넌트
+    import { Component } from "react";
+
+
+        class App extends Component () {
+        
+        render(){
+            const name = 'REACT';
+
+            return(
+            <>
+                <div className="react">{name}</div>
+                <h1>반갑습니다.</h1>
+            </>
+            )
+        }
+        }
+
+export default App;
+
+3. 첫 컴포넌트 생성
+	- 코드 작성
+	- 모듈 내보내기
+		export 객체 ...
+		export default
+
+		modules.export
+
+	- 모듈 불러오기
+		import ... from 모듈의 경로
+
+		JSX -> 다루기 쉬운 HTML로 작성 -> DOM 객체로 변환
+		( HTML )
+
+4. props
+    - 부모 컴포넌트에서 자식 컴포넌트로 값을 전달할때
+
+5. state
+
+
+
+9. 비구조화 할당
+		const person = {
+			name : "이름",
+			age : 40
+		}
+
+		const { name : name, age : age} = person;
+
+		//
+
+		const person = {
+			name : "이름",
+			age : 40
+		}
+
+		const {name : name2, age} = person;
+		
+		name2
+		=>
+
+		//
+
+		const name = "이름:
+		const age = 40;
+		const obj1 = { name : name, age : age};
+		obj1;
+		=>
+
+		const obj2 = {name, age};
+		name;
+		=>
+		age;
+		=>
+
+		//
+
+		const fruits = ['apple', 'orange', 'mango'];
+
+		const [f1, f2, f3] = fruits;
+
+		f1;
+		=> 'apple'
+		f2;
+		=>
+		f3;
+		=>
+
+		//
+
+		let a = 1, b = 2;
+
+		let [b,a] = [a,b];
+		
+		b;
+		=> 1
+
+		a;
+		=> 2
+
+		//
+
+		
+		let a = 1, b = 2;
+
+		let tmp
+
+		tmp = a;
+
+		a = b;
+
+		b = tmp;
+
+
+
+
+
+
+
+
+	
+

@@ -396,6 +396,77 @@
   열린함수 -> 닫힌 함수
   하위 함수가 상위 함수의 값을 참조 -> 가비지 콜렉터가 제거 X -> 내부 상태가 살아있는 상태로 유지...
 
+  참고) 화살표 함수
+    1) function  키워드와 함수명을 생략
+    2) 매개변수와 구현부분 사이에 => 를 추가
+    3) 코드가 한줄일때 중괄호 부분도 생략, return 예약어도 생략
+    4) 매개변수가 1개
+      const nums = [0,1,2,3,4,5,6,7,8,9,10];
+
+      const nums2 = nums.map(function(el){
+        return el * el;
+      })
+
+      nums2;
+      => (11) [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+      // 
+
+      const nums = [0,1,2,3,4,5,6,7,8,9,10];
+
+      const nums2 = nums.map(x => x * x);
+      
+      nums2;
+      => (11) [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+      // 
+      
+      function add(num1, num2){
+        return num1 + num2;
+      }
+
+      const add2 = (num1, num2) => {
+        return num1 + num2;
+      }
+
+      add2(10, 20)
+      => 30
+
+      //
+
+      const add2 = (num1, num2) => num1 + num2;
+      const add2 = (a , b) => a + b; // 이런식으로 사용하는게 더 좋다 간단화!
+
+      // 
+      
+      const func = x => console.log(x);
+      func(1);
+      => 1
+
+      const func2 = () => console.log("출력");
+      func2();
+      => 출력
+
+      // 
+      
+      const add2 = (a, b) = a + b;
+      const a = new add2()
+      => 불가능
+
+      function add(num1, num2){
+        return num1 + num2;
+      }
+
+      const a = new add();
+
+
+      
+
+
+  
+
+  
+
 7. 이름 공간
 
 

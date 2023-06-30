@@ -5,19 +5,47 @@ SPA(Single Play Another)
 
 리액트
   - 개발환경(nodejs) -> 리액트문법 -> 트랜스컴파일러 -> js
-  - react-app
-
-  npm -> node package manager
-  install : i
-
-  --global : -g
-
-  npm i --global react-app
-
-  md react
-
-  cd react
-
-  npm init react-app hello
 뷰
 앵귤러
+
+- JSX -> 트랜스 파일 -> js
+- nodejs 설치
+
+node 자바스크립트 파일 -> 실행
+npm (node package manager)
+
+  npm init -> package.json
+
+  npm install -> npm i (동일하게 사용가능) 
+  npm i 패키지명  : 형재 프로젝트에서만 설치(node_modules)
+          -g 전역 설치 : 모든 경로에서 실행 가능한 명령어 설치 
+  npm i -D 패키지명 -> 개발시에만 필요한 의존성/ 빌드시 제거
+
+  npx 명령어 -> 설치된 명령어를 실행
+
+  npmjs.org 패키지 검색
+
+react-app : 전역 설치 
+
+cmd 입력 react 개발환경 설치
+npm i -g react-app
+
+yarn 설치
+npm i -g yarn
+
+yarn add 프로젝트명;
+
+yarn create react-app 프로젝트명;
+
+npm init-react-app 프로젝트명;
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
