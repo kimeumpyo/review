@@ -1,0 +1,413 @@
+함수
+1. 함수 정의하기
+    1) 함수 선언문 - function
+      function 함수명 (...){
+
+      }  
+
+    2) 함수 리터럴
+      const 함수명 = function(...){
+
+      }
+      
+      - 함수는 객체, 값
+ 
+    3) const 함수명 = new Function("매개변수 정의", "함수 본문 내용")
+
+    예1)
+    add(10, 20); //가능하다!
+    function add(num1, num2){
+      return num1 + num2;  // add = function 함수 객체
+      }
+
+      add(10, 20);
+      => 30
+
+      const add2 = add;
+
+      add2(10, 20);
+      => 30
+
+    예2)
+    add(10, 20); // ->  function 이 대입이 되어있어서 불가능
+    const add = function(num1, num2){
+      return num1 + num2;
+    };
+
+    add(10, 20);
+    => 30
+
+2. 중첩함수
+    - 함수 안에 함수를 정의
+    - 함수가 값으로 가용될 수 있으므로 가능
+    
+    예)
+    function outer(){
+      // 자바는 가능하다
+      // const inner = 10;
+      // const inner = {};
+      // const inner = function (){};
+      // function inner(){}
+    }
+
+    참고)
+      함수 객체 - 1급 객체
+        1) 값으로 사용
+
+          - 매개변수로 사용 가능
+
+            예)
+              function outer(callback){
+                callback();
+              }
+
+              function inner(){
+                console.log("inner 호출!")
+              }
+              
+              outer(inner);
+              => inner 호출!
+
+              outer(function()){
+                console.log("inner 호출")
+              }
+
+            예)
+              const fruits = ["apple", "orange", "mango"];
+
+              Array.prototype.forEach = function(callback){
+
+                for(let i=0; i< this.length; i++){
+                  callback(this[i], i)
+                }
+              }
+              
+              fruits.forEach(function(fruit, i){
+                console.log(fruit, i)
+              })
+
+              =>  apple 0
+                  orange 1
+                  mango 2
+
+          - 반환값으로 사용 가능
+          
+            예)
+              function add(num1){
+                return function (num2){
+                  return num1 + num2;
+                };
+              }
+
+              const add1 = add(10);
+              add1(20);
+
+              => 30
+
+              const add2 = add(20):
+              add2(20);
+
+              =>
+        
+        2) 생성자 함수 객체 : 다른 객체를 만들어주는 객체
+
+          
+
+3. 함수 호출하기
+  1) 함수 호출
+  2) 메서드 호출
+  3) 생성자 호출
+    new 연산자()
+      - 생성자 -> 객체(상속 - prototype 객체의 상속)
+
+      1. 생성자 객체.prototype 객체의 상속
+      2. 생성자 함수 호출시 this의 값을 현재 객체로 변경 -> 초기화
+
+      참고)
+        상속
+          - 프로토타입 체인의 연결 관계로서 상속( 객체간 상속 )
+          - __proto__ // 상속!
+
+        function으로 함수만 정의하면 Function 생성자 함수 객체 -> 함수 객체
+          - Function.prototype 상속
+
+        예)
+          const obj1 = {a : 1, b : 2};
+
+          const obj2 = {c : 1, d : 2};
+
+          console.dir(obj1);
+
+          =>[[Prototype]]: Object
+
+          obj1.__proto__ = obj2;
+          
+          obj1;
+
+          obj1.c;
+          => 1
+
+          obj1.d;
+          => 2
+
+        예)
+          function Person(){
+            
+          }
+
+          const p1 = new Person():
+
+          p1;
+          => Person{} // 객체
+
+        예)
+          function Person(){
+            this.name = "아이유";
+            this.age = 31;
+          }
+
+          const p1 = {};
+
+          p1.__proto__ = Person.prototype;
+
+          p1;
+          =>Person {}
+
+          Person.apply(p1);
+
+          p1;
+          =>Person {name: '아이유', age: 31}
+
+        예)
+          function Person(){
+            this.name = "아이유";
+            this.age = 31;
+          }
+          
+          const p1 = {};
+
+          Person.apply(p1); // this -> p1
+
+          p1;
+          =>{name: '아이유', age: 31}
+
+          p1.__proto__ = Person.prototype;
+          =>{constructor: ƒ}
+
+          p1;
+          =>Person {name: '아이유', age: 31}
+
+        예)
+        function Person(){
+            this.name = "아이유";
+            this.age = 31;
+          }
+
+          Person.prototype.constructor === Person;
+          => true
+
+          const p1 = {};
+
+          p1.__proto__ == Person.prototype;
+          => false
+
+          Person.prototype.constructor.apply(p1);
+          
+          p1;
+          => 
+
+          p1.__proto__ = Person.prototype;
+
+          p1;
+          => 
+
+        예)
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+          }
+
+          const p1 = new Person("아이유", 31);
+
+          const p2 = new Person("야이유", 41);
+
+        예)
+          function Person(name, age){
+              this.name = name;
+              this.age = age;
+              this.showInfo = function(){
+                console.log(this.name, this,age);
+              };
+            }
+
+          const p1 = new Person("아이유", 40);
+          const p2 = new Person("나이유", 30);
+
+          p1.showInfo === p2.showInfo;
+          => false
+
+        예)
+        function Person(name, age){
+              this.name = name;
+              this.age = age;
+            }
+
+            Person.prototype.showInfo = function(){
+              console.log(this.name, this.age);
+            }
+
+            const p1 = new Person("이름1", 30);
+            const p2 = new Person("이름2", 50);
+
+            p1;
+            p2;
+
+            p1.showInfo === p2.showInfo;
+            => true
+
+        예)
+          const a = [1,2,3,4,5];
+
+          const b = [6,7,8,9,10];
+
+  4) call,apply를 사용한 간접 호출
+  5) 즉시 함수 호출
+
+4. 프로그램 평가와 실행과정
+  - 열린 함수 : 외부 함수의 변수값을 참조 함수 
+  - 닫힌 함수 : 외부 함수의 변수값을 참조 하지않는 함수
+  - 함수는 객체 -> 실행 X -> 번역(평가) -> 실행가능한 객체(Execution Context - EC) -> 스택에서 실행 -> 종료
+  
+  Global EC 구성{
+    변수 레코드{
+      window.num0 = 5;
+    }
+    외부 변수 레코드 참조 : null
+    this 바인딩 : window
+  }
+
+  outer EC 구성{
+    변수 레코드{
+      num1 : 10
+    }
+    외부 변수 레코드 참조 : Global EC의 변수 레코드 참조
+    this 바인딩 : 호출한 객체가 주소 값this의 값
+  }
+
+  inner EC 구성{
+    변수 레코드{
+      num2 : 20
+    }
+
+    외부 변수 레코드 참조 : outer EC 변수 레코드 참조
+
+    this 바인딩 : 호출한 객체가 주소 값this의 값
+  }
+
+  유효범위 체인
+    Scope
+  
+  this는 호출되서 평가될때 그때 범위가 결정된다.
+    - 그 전에는this의 범위를 변경 할 수 있다.
+
+  예)
+    const num0 = 5;
+
+    function outer(){
+      const num1 = 10;
+
+      const result = inner();
+      console.log(result);
+
+      function inner(){
+        const num2 = 20; // 
+
+        return num0 + num1 + num2;
+      }
+    }
+
+    outer();
+
+    => 35
+
+  예)
+  function add(num1, num2){
+    consol.log(this);
+    return num1 + num2;
+
+  }
+
+  add(19, 20);
+
+  window.add(10, 20);
+
+  예)
+    const person = {
+      name : "아이유",
+      age : 31,
+      showInfo : function(){
+        console.log(this);
+      }
+    }
+
+    person.showInfo();
+    => {name: '아이유', age: 31, showInfo: ƒ}
+
+    const showInfo = person.showInfo
+
+    showInfo();
+    =>Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+    
+  예)
+    const num0 = 5;
+
+    function outer(){
+      const num1 = 10;
+
+      const result = inner();
+      console.log(result);
+
+      function inner(){
+        const num1 = 11; // 내부에 정의가 되어있으면 먼저 사용한다
+        const num2 = 20;  
+
+        return num0 + num1 + num2;
+      }
+    }
+
+    outer();
+    => 36
+
+5. 자바스크립트는 싱글 스레드
+  - 사용자가 통제 가능한 쓰레드 1개
+  - 호출 스택 + 작업 함수 : 작업대
+
+  예)
+  console.log("A작업");
+
+  setTimeout(function(){
+    console.log("B 작업 - 매우 무거운 작업")
+  },3000);
+
+  console.log("C작업");
+
+
+6. 클로저
+  열린함수 -> 닫힌 함수
+  하위 함수가 상위 함수의 값을 참조 -> 가비지 콜렉터가 제거 X -> 내부 상태가 살아있는 상태로 유지...
+
+7. 이름 공간
+
+
+  예)
+    function add(num1){ // 열린함수
+      return function(num2){
+        return num1 + num2; // num1(10)
+      }
+    }
+
+    const add1 = add(10); // 닫힌함수 10으로 고정
+
+    console.dir(add1);
+    
+    

@@ -1,0 +1,23 @@
+프론트 앤드 프레임워크
+
+SPA(Single Play Another)
+// 참고 https://velog.io/@mollog/React%EC%97%90%EC%84%9C%EC%9D%98-%EA%B0%80%EC%83%81%EB%8F%94-%EA%B0%9C%EB%85%90
+
+리액트
+  - 개발환경(nodejs) -> 리액트문법 -> 트랜스컴파일러 -> js
+  - react-app
+
+  npm -> node package manager
+  install : i
+
+  --global : -g
+
+  npm i --global react-app
+
+  md react
+
+  cd react
+
+  npm init react-app hello
+뷰
+앵귤러
