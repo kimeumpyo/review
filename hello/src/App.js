@@ -3,6 +3,7 @@ import MyComponent from "./MyComponent.js";
 import Counter from "./Counter2.js";
 import Say from "./Say.js"
 import EventPractice from "./EventPractice.js"
+import Login from "./Login.js"
 
 
 
@@ -16,6 +17,8 @@ const App = () =>{
       <Say/>
       <br/>
       <EventPractice/>
+      <br/>
+      <Login/>
     </>
   ) 
 

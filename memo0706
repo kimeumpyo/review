@@ -228,6 +228,29 @@
     c1;
     => Circle {a: 10, b: 10}
 
+
+    참고)
+    {...변수명} => 객체를 복사 (주소값이 다르다!) 고로 person === person2 는 false 가 나온다
+
+    const person { name : "아이유", age : 40};
+
+    const person2 = {...person, name : "김이유" };
+
+    person2;
+    =>
+
+  참고)
+
+    function add (num1, num2){
+      return num1 + num2;
+    }
+
+    const nums = [10, 20];
+
+    add(...nums);
+
+    => 30
+
     
 
 
