@@ -1,0 +1,7 @@
+이벤트 핸들링
+
+onClick
+onChange
+  -> 파일 선택
+  -> select
+  -> 글을 입력

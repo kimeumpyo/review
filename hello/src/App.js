@@ -1,19 +1,24 @@
 import { Component } from "react"; 
-import MyComponent from "./MyComponent";
+import MyComponent from "./MyComponent.js";
+import Counter from "./Counter2.js";
+import Say from "./Say.js"
+import EventPractice from "./EventPractice.js"
 
 
-class App extends Component () {
-  
-  render(){
-    const name = 'REACT';
-    return(
-      <>
-      <MyComponent name="이름" age={40}/>
-        <div className="react">{name}</div>
-        <h1>반갑습니다.</h1>
-      </>
-    )
-  }
+
+const App = () =>{
+  return(
+    <>
+      <Counter/>
+      <br/>
+      <MyComponent name="이름" age={40}>11111</MyComponent>
+      <br/>
+      <Say/>
+      <br/>
+      <EventPractice/>
+    </>
+  ) 
+
 }
 
 export default App;
