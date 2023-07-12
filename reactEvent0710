@@ -29,8 +29,14 @@
         - scrollRestoration : auto - 뒤로, 앞으로 페이지 이동시 기종 스크롤 위치를 기억
         - scrollRestoration : manual - 스크롤 위치 유지 X, 가장 상단에 위치
 
-      - screen
+      - screen : 화면 사이즈, 색상 설정, 화면 방향
+        - landscape (가로 모드)
+        - portrait(세로 모드)
+
       - navigator
+        - geolocation
+        - userAgent -> 모바일인지 피시인지 알수 있다
+
       - document
 
   
