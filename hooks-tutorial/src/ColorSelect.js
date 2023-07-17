@@ -1,5 +1,3 @@
-
-
 const ColorSelect = ({ setColor }) => {
   const changeColor = (e) => {
 		setColor(e.currentTarget.value);
