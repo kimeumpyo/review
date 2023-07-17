@@ -23,3 +23,32 @@ Hook
 	https://newsapi.org/v2/top-headlines?apiKey=9a63a884277647b4ae5508c68da5bed9&country=kr
 
 	axios: 
+
+	참고)
+	jwt
+
+	sessionStorage
+	localStorage
+
+	useMemo -> 기존 값이 동일한 경우 함수호출 없이, 동일한 값 반환 : 성능상 이점
+	useCallback
+
+
+	싱글쓰레드 모델
+
+	setTimeout(function(){
+		console.log("5초뒤 실행")
+		// 5초뒤에 실행되는 이벤트 핸들러
+	},5000);
+		console.log("다음 작업")
+
+
+	호출스택
+	setTimeout
+
+	5초경과 -> 이벤트루프
+
+	백그라운드 영역 
+	funciton () {} : 이벤트 핸들러
+
+	작업 대기열 (Task Queue) -> 호출스택

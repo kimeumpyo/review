@@ -1,6 +1,14 @@
-const NewsItems = ({ articles }) => {
+import NewsItem from "./NewsItem";
+
+const NewsItems = ({ articles, setId }) => {
 	console.log(articles);
-	return <div></div>
+	articles = Array.isArray(articles) ? articles : [articles];
+	const items = articles.map(article => <NewsItem key={article.id} article={article} setId={setId}/>);
+	return (
+		<ul>
+			{items}
+		</ul>
+	)
 };
 
 export default NewsItems;
