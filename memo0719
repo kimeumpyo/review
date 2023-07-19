@@ -39,6 +39,21 @@ yarn add styled-components 또는 npm i styled-components
 
 react-router-dom  (v6버전)
 
+useParams
+
+/profile/:id
+
+useLocation / useSearchPrams
+- 쿼리 스트링
+
+useLocation -> location 객체 반환
+    - nodejs - qs..qu
+
+useSearchPrams -> URLSearchParams
+
+Link
+
+serve
 
 
 
