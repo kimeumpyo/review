@@ -1,7 +1,15 @@
 @import "./styles/common.scss";
+// @import'./node_modules/open-color/open-color';
+// @import'./node_modules/include-media/dist/include-media';
+@import'~open-color/open-color';
+@import'~include-media/dist/include-media';
 
 .SassComponent{
     display: flex;
+    background-color: $oc-gray-2;
+    @include media('<=720px'){
+        background-color: $oc-gray-9;
+    }
     .box{   // .SassComponent .box
         background-color: red;
         cursor: pointer;

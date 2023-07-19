@@ -2,9 +2,42 @@ Hooks
 
 컴포넌트 스타일링
 
-@import - 다른 css 스타일링
+@import - 다른 css 파일추가, 로드
+
+npm run eject
+
+open-color
+include-media
+
+~ / node_modules/
+
+CSS Module
+
+파일명.module.css
+
+[파일명]_[클래스명]_[해시코드]
+
+:global 클래스명 {
+
+}
+
+classnames : 조건에 따른 클래스 추가, 제거 통제 
+
+yarn add classnames
+
+npm i classnames
+
+Funciton.prototype
+    .apply
+    .call
+    .bind -> this의 값을 변경, 매개변수 고정하는 새로운 함수
+
+yarn add styled-components 또는 npm i styled-components
+
 
 리액트 라우터
+
+react-router-dom  (v6버전)
 
 
 
